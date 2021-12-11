@@ -1,7 +1,26 @@
 {
   "name": "ui",
   "version": "1.0.0",
-  "main": "./Button.tsx",
+  "main": "./index.ts",
   "types": "./Button.tsx",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@stitches/react": "^1.2.6",
+    "downshift": "^6.1.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "babel-loader": "^8.2.3"
+  },
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build": "build-storybook"
+  }
 }
