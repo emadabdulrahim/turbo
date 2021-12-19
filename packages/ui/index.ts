@@ -1,2 +1,2 @@
 export * from "./components";
-export * from "./stories/Button";
+export * from "./theme";

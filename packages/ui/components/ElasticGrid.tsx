@@ -1,19 +1,19 @@
-import * as React from "react";
-import { BoxProps } from "~/types";
-import { styled, theme } from "../theme";
+import { styled } from "../theme";
+import { generateVariantsFromThemeTokens } from "../theme/utils";
 import { Box } from "./Box";
 
-const _ElasticGrid = styled(Box, {
+// TODO: This shouldn't read from scale, we should be able to pass pixel value (min width of item in grid)
+const variants = generateVariantsFromThemeTokens<"space">(
+  "space",
+  "fontSize",
+  (key, value) => ({
+    [key]: {
+      gridTemplateColumns: `repeat(auto-fill, minmax(min(${value}, 100%), 1fr))`,
+    },
+  })
+);
+
+export const ElasticGrid = styled(Box, {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(min($$GridSpace, 100%), 1fr))",
 });
-
-type ElasticGridProps = {
-  space: keyof typeof theme["space"];
-} & BoxProps;
-
-export const ElasticGrid = React.forwardRef<HTMLDivElement, ElasticGridProps>(
-  ({ space, ...rest }: ElasticGridProps) => {
-    return <_ElasticGrid css={{ $$GridSpace: theme.space[space] }} {...rest} />;
-  }
-);

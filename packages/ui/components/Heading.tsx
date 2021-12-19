@@ -1,4 +1,10 @@
 import { styled } from "../theme";
+import { generateVariantsFromThemeTokens } from "../theme/utils";
+
+const variants = generateVariantsFromThemeTokens<"fontSizes">(
+  "fontSizes",
+  "fontSize"
+);
 
 export const Heading = styled("h2", {
   fontSize: "$4",
@@ -17,40 +23,17 @@ export const Heading = styled("h2", {
       },
     },
     size: {
+      ...variants,
       1: {
-        fontSize: "$1",
         textTransform: "uppercase",
         letterSpacing: "$caps",
         fontWeight: "$medium",
         color: "$textDefault",
       },
       2: {
-        fontSize: "$2",
         color: "$textDefault",
         fontWeight: "$medium",
         letterSpacing: "$body",
-      },
-      3: {
-        fontSize: "$3",
-        letterSpacing: "$body",
-      },
-      4: {
-        fontSize: "$4",
-      },
-      5: {
-        fontSize: "$5",
-      },
-      6: {
-        fontSize: "$6",
-      },
-      7: {
-        fontSize: "$7",
-      },
-      8: {
-        fontSize: "$8",
-      },
-      9: {
-        fontSize: "$9",
       },
     },
   },

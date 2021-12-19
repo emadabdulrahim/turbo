@@ -1,4 +1,10 @@
 import { styled } from "../theme";
+import { generateVariantsFromThemeTokens } from "../theme/utils";
+
+const variants = generateVariantsFromThemeTokens<"fontSizes">(
+  "fontSizes",
+  "fontSize"
+);
 
 export const Text = styled("p", {
   fontSize: "$4",
@@ -18,20 +24,20 @@ export const Text = styled("p", {
     },
     size: {
       1: {
-        fontSize: "$1",
+        ...variants["1"],
       },
       2: {
-        fontSize: "$2",
+        ...variants["2"],
         color: "$textMuted",
       },
       3: {
-        fontSize: "$3",
+        ...variants["3"],
       },
       4: {
-        fontSize: "$4",
+        ...variants["4"],
       },
       5: {
-        fontSize: "$5",
+        ...variants["5"],
       },
     },
   },

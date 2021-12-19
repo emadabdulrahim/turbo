@@ -14,7 +14,7 @@ export const Container = styled(Box, {
         maxWidth: "840px",
       },
       wide: {
-        maxWidth: "1100px",
+        maxWidth: "1200px",
       },
     },
   },
